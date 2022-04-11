@@ -7,9 +7,100 @@ import {
     StatusBar
 } from 'react-native';
 
+import LinearGradient from "react-native-linear-gradient"
+
 import { images, COLORS, SIZES, FONTS } from "../constants"
 
+import { CustomButton } from '../components';
+
 const Login = ({ navigation }) => {
+
+    function renderHeader() {
+        return (
+            <View style={{
+                height: SIZES.height > 700 ? "65%" : "60%"
+            }}>
+   
+                 <ImageBackground 
+                     source={images.loginBackground}
+                     style={{
+                         flex: 1,
+                         justifyContent: 'flex-end'
+                     }}
+
+                     resizeMode="cover"
+                 >
+
+                     <LinearGradient
+                     start={{ x: 0, y: 0}}
+                     end={{ x: 0, y: 1}}
+                     colors={[
+                         COLORS.transparent,
+                         COLORS.black
+                     ]}
+                     style={{
+                         heigh: 200,
+                         justifyContent: 'flex-end',
+                         paddingHorizontal: SIZES.padding
+                     }}
+                     >
+                         <Text 
+                            style={{
+                                width: "80%",
+                                color: COLORS.white,
+                                ...FONTS.largeTitle,
+                                lineHeight: 45
+                            }}
+                         >
+                             Cooking A Delicious Meal Easily
+                         </Text>
+
+                     </LinearGradient>
+
+                 </ImageBackground>
+
+            </View>
+        )
+    }
+
+    function renderDetail(){
+          return (
+              <View
+                 style={{
+                     flex: 1, 
+                     paddingHorizontal: SIZES.padding
+                 }}
+              >
+                  {/* Description */}
+                  <Text 
+                      style={{
+                          marginTop:SIZES.radius,
+                          width: "70%",
+                          color: COLORS.gray,
+                          ...FONTS.body3
+                      }}
+                  >
+                      Discover more than 1200 food recipes in your
+                      hands and cook it easily
+                  </Text>
+
+                  {/* Buttons */}
+                   <View 
+                      style={{
+                          flex:1,
+                          justifyContent: 'center'
+                      }}
+                   >
+                       {/* login */}
+
+                      
+
+                       {/* sign up */}
+                   </View>
+
+              </View>
+          )
+    }
     return (
         <View 
            style={{
@@ -21,8 +112,11 @@ const Login = ({ navigation }) => {
 
             {/* HEADER */}
 
+            {renderHeader()}
+
             {/* DETAILS */}
          
+            {renderDetail()}
         </View>
     )
 }
