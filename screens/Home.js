@@ -2,8 +2,14 @@ import React from 'react';
 import {
     View,
     Text,
+    Image,
+    SafeAreaView,
+    TextInput,
+    FlatList,
     TouchableOpacity
 } from 'react-native';
+
+import { FONTS, COLORS, SIZES, icons, images, dummyData} from '../constants';
 
 const Home = ({ navigation }) => {
     return (
