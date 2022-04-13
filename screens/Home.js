@@ -11,22 +11,43 @@ import {
 
 import { FONTS, COLORS, SIZES, icons, images, dummyData} from '../constants';
 
+import { CategoryCard } from '../components';
+
 const Home = ({ navigation }) => {
     return (
-        <View
-            style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}
-        >
-            <Text>Home</Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Recipe")}
-            >
-                <Text>Navigate to Recipe</Text>
-            </TouchableOpacity>
-        </View>
+      <SafeAreaView
+         style={{
+             flex:1,
+             backgroundColor:COLORS.white
+         }}
+      >
+          <FlatList
+             data={dummyData.categories}
+             keyExtractor={item => `${item.id}`}
+             keyboardDismissMode="on-drag"
+             showsVerticalScrollIndicator={false}
+             ListHeaderComponent={
+                 <View></View>
+             }
+             renderItem={({item}) => {
+                 return (
+                  <CategoryCard
+                      CategoryItem={item}
+                  />
+                     
+                 )
+             }}
+             ListFooterComponent={
+                 <View
+                     style={{
+                         marginBottom: 100
+                     }}
+                 >
+                 </View>
+             }
+          />
+
+      </SafeAreaView>
     )
 }
 
