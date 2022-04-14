@@ -8,7 +8,7 @@ import {
  
 import { COLORS, FONTS, SIZES } from "../constants"
 
-const CategoryCard = ({ containerStyle, CategoryItem, onPress }) =>
+const CategoryCard = ({ containerStyle, categoryItem, onPress }) =>
 {
     return (
         <TouchableOpacity
@@ -35,7 +35,32 @@ const CategoryCard = ({ containerStyle, CategoryItem, onPress }) =>
              />
 
              {/* Detail */}
+             <View 
+               style= {{
+                   width: '65%',
+                   paddingHorizontal: 20
+               }}    
+             >
+                 {/* Name */}
+             <Text>
+               style={{
+                   flex:1,
+                   ...FONTS.h2
+               }}
+             
+                 {categoryItem.name}
+             </Text>
 
+             {/* Serving */}
+            <Text
+              style={{
+                  color: COLORS.gray,
+                  ...FONTS.body4
+              }}
+            >
+                {categoryItem.duration} | {cat.serving} Serving
+            </Text>
+             </View>
         </TouchableOpacity>
     )
 }
