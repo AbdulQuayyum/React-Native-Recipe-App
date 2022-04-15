@@ -7,8 +7,20 @@ import {
     Platform,
     StyleSheet
 } from 'react-native'
+import { BlurView } from '@react-native-community/blur'
 
 import { SIZES,COLORS, icons, FONTS } from '../constants'
+
+const RecipeCardInfo = ({ recipeItem }) => {
+    return (
+      <BlurView
+      blurType="dark"
+      style={styles.RecipeCardContainer}
+      >
+
+      </BlurView>
+    )
+}
 
 const TrendingCard = ({ containerStyle, recipeItem, onPress }) => {
     return (
@@ -56,6 +68,10 @@ const TrendingCard = ({ containerStyle, recipeItem, onPress }) => {
                </Text>
             </View>
 
+             {/* Card Info */}
+             <RecipeCardInfo
+                 recipeItem={recipeItem}
+             />
         </TouchableOpacity>
     )
 }
