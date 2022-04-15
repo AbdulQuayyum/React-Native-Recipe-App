@@ -91,9 +91,84 @@ const Home = ({ navigation }) => {
                   tintColor: COLORS.gray
               }}
           />
+
+          <TextInput
+             style={{
+                 marginLeft: SIZES.radius,
+                 ...FONTS.body3
+             }}
+             placeholderTextColor={COLORS.gray}
+             placeholder="Search Recipes"
+          />
             </view>
         )
     }
+
+          function renderSeeRecipeCard() {
+              return (
+                  <View
+                     style={{
+                         flexDirection: 'row',
+                         marginTop: SIZES.padding,
+                         marginHorizontal: SIZES.padding,
+                         borderRadius: 10,
+                         backgroundColor: COLORS.lightGreen
+                     }}
+                  >
+                      {/* Image */}
+                      <View
+                         style={{
+                             width: 100,
+                             alignItems: 'center',
+                             justifyContent: 'center'
+                         }}
+                      >
+                          <Image
+                             source={images.recipe}
+                             style={{
+                                 width: 80,
+                                 height: 80
+                             }}
+                          />
+                      </View>
+
+                      {/* Text */}
+                      <View
+                         style={{
+                             flex: 1,
+                             paddingVertical: SIZES.radius
+                         }}
+                      >
+                          <Text
+                            style={{
+                                width: "70%",
+                                ...FONTS.body4
+                            }}
+                          >  
+                              You have 12 recipes that you have not tried yet
+                          </Text>
+                         
+
+                         <TouchableOpacity
+                          style={{
+                              marginTop: 10
+                          }}
+                          onPress={() => console.log("See Recipes")}
+                         >
+                             <Text 
+                             style={{
+                                 color: COLORS.darkGreen,
+                                 textDecorationLine: 'underline',
+                                 ...FONTS.h4
+                             }}> 
+                                   See Recipes
+                             </Text>
+
+                         </TouchableOpacity>
+                      </View>
+                    </View>
+              )
+          }
 
     return (
       <SafeAreaView
