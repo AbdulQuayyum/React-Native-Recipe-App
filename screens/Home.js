@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
                          ...FONTS.body3
                      }}
                   >
-                      Whar you want to cook today?
+                      What you want to cook today?
                   </Text>
               </View>
 
@@ -83,6 +83,14 @@ const Home = ({ navigation }) => {
                 
             }}
       >
+          <Image
+              source={icons.search}
+              style={{
+                  width: 20,
+                  height:20,
+                  tintColor: COLORS.gray
+              }}
+          />
             </view>
         )
     }
