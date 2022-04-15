@@ -170,6 +170,43 @@ const Home = ({ navigation }) => {
               )
           }
 
+
+          
+          function renderTrendingSection() {
+              return (
+                  <View
+                     style={{
+                         marginTop: SIZES.padding,
+                         ...FONTS.h2
+                     }}
+                  >
+                     <Text 
+                        style={{
+                            marginHorizontal: SIZES.padding,
+                            ...FONTS.h2
+                        }}
+                     >
+                           Trending Recipe
+                     </Text>
+
+                     <FlatList
+                        data={dummyData.trendingRecipes}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        key={item => `${item.id}`}
+                    renderItem={({ item, index}) => {
+                        return (
+                            <View>
+                                 <Text>{item.name}</Text>
+                            </View>
+                        )
+                    }}
+                     />
+                  </View>
+              )
+          }
+          
+
     return (
       <SafeAreaView
          style={{
@@ -191,7 +228,11 @@ const Home = ({ navigation }) => {
                     { renderSearchBar()}
 
                      {/* See Recipe Card */}
+                     { renderSeeRecipeCard()}
+
                      {/* Trending Section */}
+                     {renderTrendingSection()}
+
                      {/* Category Head */}
                  </View>
              }
