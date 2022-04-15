@@ -11,7 +11,7 @@ import {
 
 import { FONTS, COLORS, SIZES, icons, images, dummyData} from '../constants';
 
-import { CategoryCard } from '../components';
+import { CategoryCard, TrendingCard } from '../components';
 
 const Home = ({ navigation }) => {
 
@@ -196,9 +196,9 @@ const Home = ({ navigation }) => {
                         key={item => `${item.id}`}
                     renderItem={({ item, index}) => {
                         return (
-                            <View>
-                                 <Text>{item.name}</Text>
-                            </View>
+                             <TrendingCard
+                                 recipeItem={item}
+                             />
                         )
                     }}
                      />
