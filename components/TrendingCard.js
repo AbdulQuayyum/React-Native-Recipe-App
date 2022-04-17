@@ -11,15 +11,55 @@ import { BlurView } from '@react-native-community/blur'
 
 import { SIZES,COLORS, icons, FONTS } from '../constants'
 
-const RecipeCardInfo = ({ recipeItem }) => {
+const RecipeCardDetails = ({ recipeItem }) => {
     return (
-      <BlurView
-      blurType="dark"
-      style={styles.RecipeCardContainer}
-      >
+        <View
+           style={{
+               flex:1
+           }}
+        >
 
-      </BlurView>
+            {/* Name & Bookmark */}
+
+
+            <View>
+                
+            </View>
+
+
+            {/* Duration & Serving */}
+
+        </View>
     )
+}
+
+const RecipeCardInfo = ({ recipeItem }) => {
+  if (Platform.OS === 'ios') {
+      return (
+        <BlurView
+        blurType="dark"
+        style={styles.RecipeCardContainer}
+        >
+            <recipeCardDetails
+            recipeItem={recipeItem}
+            />  
+        </BlurView>
+      )
+  } else {
+      return (
+          <View 
+            style={{
+                ...styles.RecipeCardContainer,
+                backgroundColor: COLORS.transparentDarkGray
+            }}
+          >
+              <RecipeCardDetails
+                  recipeItem={recipeItem}
+              />
+
+          </View>
+      )
+  }
 }
 
 const TrendingCard = ({ containerStyle, recipeItem, onPress }) => {
@@ -75,5 +115,18 @@ const TrendingCard = ({ containerStyle, recipeItem, onPress }) => {
         </TouchableOpacity>
     )
 }
+
+const styles = StyleSheet.create({
+    RecipeCardContainer: {
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
+        right: 10,
+        height: 100,
+        paddingVertical: SIZES.radius,
+        paddingHorizontal: SIZES.base,
+        borderRadius: SIZES.radius
+    }
+})
 
 export default TrendingCard
