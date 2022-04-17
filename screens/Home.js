@@ -197,7 +197,13 @@ const Home = ({ navigation }) => {
                     renderItem={({ item, index}) => {
                         return (
                              <TrendingCard
+                                 containerStyle={{
+                                     marginLeft: index == 0 ? SIZES.padding : 0
+                                 }}
                                  recipeItem={item}
+                                 onPress={() => navigation.navigate
+                                ("Recipe", { recipe: item })
+                                }
                              />
                         )
                     }}
@@ -205,6 +211,42 @@ const Home = ({ navigation }) => {
                   </View>
               )
           }
+
+    function renderCategoryHeader() {
+        return (
+            <View
+              style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginTop: 20,
+                  marginHorizontal: SIZES.padding
+              }}
+            >
+                {/* Section Tittle */}
+                 <Text
+                    style={{
+                        flex: 1,
+                        ...FONTS.h2
+                    }}
+                 >
+                      Categories
+                 </Text>
+
+                {/* View All */}
+                <TouchableOpacity>
+                    <Text
+                      style={{
+                          color: COLORS.gray,
+                          ...FONTS.body4
+                      }}
+                    >
+                        View All
+                    </Text>
+                </TouchableOpacity>
+
+            </View>
+        )
+    }
           
 
     return (
@@ -234,6 +276,7 @@ const Home = ({ navigation }) => {
                      {renderTrendingSection()}
 
                      {/* Category Head */}
+                     {renderCategoryHeader()}
                  </View>
              }
              renderItem={({item}) => {
