@@ -13,6 +13,8 @@ import { SIZES, FONTS, COLORS, icons } from "../constants"
 
 const HEADER_HEIGHT = 350;
 
+const RecipeCreatorCardDetail = ({})
+
 const RecipeCreatorCardInfo = ({ selectedRecipe }) => {
     if (Platform.OS ==='ios') {
         return (
@@ -38,6 +40,9 @@ const RecipeCreatorCardInfo = ({ selectedRecipe }) => {
                    backgroundColor: COLORS.transparentBlack9
                }}
             >
+                <RecipeCreatorCardDetail
+                     selectedRecipe={selectedRecipe}
+                />
 
             </View>
 
